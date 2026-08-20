@@ -4,11 +4,6 @@
 CI/CD, production deployment, and documentation, per the *AI-Driven Crime Analytics
 & Visualization Platform* project plan for Karnataka State Police (SCRB Division).
 
-This repository contains **only Member 1's responsibilities**. It does not include the
-DataStore schema (Member 2), ML pipelines (Member 3), business-logic API handlers
-(Member 4), or dashboard/frontend code (Member 5) — those are separate workstreams
-that plug into the security and deployment scaffolding provided here.
-
 ## What's in this repository
 
 | Path | Owns |
@@ -37,6 +32,8 @@ pytest tests/ -q                # run the test suite
 
 See `docs/INSTALLATION.md` for full setup instructions and `docs/DEPLOYMENT.md` for
 deploying to Zoho Catalyst.
+
+https://snazzy-strudel-25bdd0.netlify.app/dashboard
 
 ## Security model (summary)
 
