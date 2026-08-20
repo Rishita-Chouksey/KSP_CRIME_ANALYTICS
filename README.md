@@ -54,8 +54,3 @@ Full detail in `docs/API_SECURITY.md`.
 - `main` — always deployable, protected, requires PR review.
 - `dev` — integration branch for the team.
 - `feature/<member>-<short-description>` — individual work, merged into `dev` via PR.
-
-## Team
-
-Project plan defines 5 members; this deliverable covers **Member 1 (Project Lead & DevOps)**
-only. See `docs/ARCHITECTURE.md` for how this scaffolding integrates with Members 2–5.
