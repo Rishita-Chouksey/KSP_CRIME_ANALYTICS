@@ -1,0 +1,69 @@
+{
+  "project": {
+    "name": "ksp-crime-analytics",
+    "id": "ksp-crime-analytics-platform",
+    "description": "AI-Driven Crime Analytics & Visualization Platform for Karnataka State Police (SCRB Division)"
+  },
+  "environments": {
+    "development": {
+      "domain": "ksp-crime-analytics-dev.catalystserverless.com",
+      "log_level": "DEBUG",
+      "rate_limit_per_minute": 300,
+      "cors_allowed_origins": ["http://localhost:3000", "http://localhost:5173"]
+    },
+    "production": {
+      "domain": "ksp-crime-analytics.catalystserverless.com",
+      "log_level": "INFO",
+      "rate_limit_per_minute": 100,
+      "cors_allowed_origins": ["https://ksp-dashboard.internal.gov.in"]
+    }
+  },
+  "functions": [
+    {
+      "name": "core-crud-api",
+      "type": "advancedio",
+      "runtime": "python311",
+      "source": "../gateway",
+      "entry_point": "app.handler",
+      "memory": 256,
+      "timeout": 30
+    },
+    {
+      "name": "analytics-api",
+      "type": "advancedio",
+      "runtime": "python311",
+      "source": "../gateway",
+      "entry_point": "analytics_app.handler",
+      "memory": 512,
+      "timeout": 60
+    },
+    {
+      "name": "realtime-refresh-cron",
+      "type": "cron",
+      "runtime": "python311",
+      "schedule": "every 5 minutes",
+      "source": "../scripts",
+      "entry_point": "refresh_cache.run"
+    }
+  ],
+  "datastore": {
+    "provider": "catalyst-datastore",
+    "tables_owned_by_member1": []
+  },
+  "api_gateway": {
+    "enabled": true,
+    "https_only": true,
+    "jwt_auth": true,
+    "rate_limiting": true,
+    "ip_whitelisting": true
+  },
+  "team": {
+    "members": [
+      {"role": "project_lead_devops", "id": "member_1"},
+      {"role": "database_engineer", "id": "member_2"},
+      {"role": "ml_engineer", "id": "member_3"},
+      {"role": "backend_engineer", "id": "member_4"},
+      {"role": "frontend_engineer", "id": "member_5"}
+    ]
+  }
+}
