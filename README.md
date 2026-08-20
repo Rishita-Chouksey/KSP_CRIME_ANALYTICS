@@ -1,4 +1,4 @@
-# KSP Crime Analytics Platform — Member 1 Deliverable
+# KSP Crime Analytics Platform
 
 **Scope:** Project Lead & DevOps — Zoho Catalyst setup, API Gateway, security layer,
 CI/CD, production deployment, and documentation, per the *AI-Driven Crime Analytics
